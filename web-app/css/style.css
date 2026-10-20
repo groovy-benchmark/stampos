@@ -1,0 +1,320 @@
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+body{
+	margin:0;
+	background-color: black;
+	font-family: Sans-Serif;
+	color:white;
+}
+
+html, body{
+	height:100%;
+	/* Disables zooming on Windows 8 */
+	touch-action: manipulation;
+    /*
+    When this doesn't work, try this:
+    touch-action: none;
+    -ms-content-zooming: none;
+    */
+}
+
+a{
+	color: #C01A1A;
+}
+
+button{
+	font-size: 11pt;
+}
+
+button:disabled {
+	background-color: #BDBDBD;
+}
+
+#userButtonsArea, #noUsersNotice{
+	position:absolute;
+	margin-right:361pt;/* 4 columns of buttons + 10 pt margin */
+	opacity: 0;
+}
+
+#noUsersNotice
+{
+	padding-top: 10pt;
+	padding-left: 10pt;
+}
+
+
+#right{
+	width:361pt;/* 3 columns of buttons + 10 pt margin*/
+	float:right;
+}
+
+@media screen and (max-width: 1024px) {
+	.userSelectButton, .productSelectButton{
+		width: 85pt !important;
+		height: 40pt !important;
+		margin-left: 7.5pt !important;
+		margin-top: 7.5pt !important;
+	}
+	
+	#right{
+		width:192.5pt !important;/* 2 columns of buttons + 3 x 7.5 pt margin*/
+	}
+	
+	#userButtonsArea{
+		margin-right:192.5pt !important;/* see #right */
+	}
+	
+	#orderActionsArea
+	{
+		margin-bottom: 7.5pt !important;
+		padding-left: 7.5pt !important;
+	}
+	
+	.orderArea{
+		padding: 7.5pt !important;
+	}
+	
+	.orderActionsCover{
+		width: 7.5pt !important;
+	}
+	
+	#orderActionsArea{
+		right: 7.5pt !important;
+	}
+	
+	#clearOrderDiv{
+		/* TODO: why is this even not 0 in the first place? */
+		padding-right: 0 !important;
+	}
+	
+	#orderActionsArea{
+		width: 182.5pt !important;
+	}
+	
+	#confirmOrder, .clearOrder{
+		height: 40pt !important;/* The same as .userSelectButton, .productSelectButton */
+	}
+	
+	/* Ordered products */
+	#order{
+		padding-top: 20pt !important;
+	}
+	
+	.orderLine{
+		font-size: 13pt !important;
+	}
+	.reduceOrder{
+		margin-right: 7.5pt !important;
+	}
+	
+	.orderNumber{
+		/* We use a fixed width instead of a margin-right so when the number of products > 10, 
+		it won't push the name of the product to the right */
+		width: 16pt !important;
+	}
+	
+	.orderPrice{
+		/* We use a fixed width for all the prices so they are all nicely aligned to the left */
+		width: 45pt !important;	
+	}
+	
+}
+
+#orderActionsArea
+{
+	position:absolute;
+	bottom: 0;
+	right: 10pt;
+	margin-bottom: 10pt;
+	padding-left: 10pt;
+	opacity: 0;
+	width:361pt;/* 3 columns of buttons + 10 pt margin*/
+}
+
+.orderActionsCover{
+	z-index: 10;
+	position:absolute;
+	bottom: 0;
+	right:0;
+	width: 10pt;
+	height: 100%;
+	background-color:black;
+	
+}
+
+.opaque{
+	opacity: 1 !important;
+}
+
+.clearOrder{
+	height: 45pt;
+	width: 100%;
+	color:white;
+}
+
+#clearOrderDiv{
+	width:50%;
+	padding-right:5pt;
+	float:left;
+}
+
+.completeClearOrderDiv{
+	width: 25% !important;
+}
+
+#confirmOrder{
+	background-color: green;
+	/*border-radius: 5px;
+	border: 1px solid black;*/
+	border: none;
+	height: 45pt;
+	width: 100%;
+	color:white;
+}
+
+.userSelectButton{
+	/*
+	background-color: #618029;
+	background-image: linear-gradient(bottom, rgb(72,92,33) 0%, rgb(98,128,41) 49%);
+background-image: -o-linear-gradient(bottom, rgb(72,92,33) 0%, rgb(98,128,41) 49%);
+background-image: -moz-linear-gradient(bottom, rgb(72,92,33) 0%, rgb(98,128,41) 49%);
+background-image: -webkit-linear-gradient(bottom, rgb(72,92,33) 0%, rgb(98,128,41) 49%);
+background-image: -ms-linear-gradient(bottom, rgb(72,92,33) 0%, rgb(98,128,41) 49%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0, rgb(72,92,33)),
+	color-stop(0.49, rgb(98,128,41))
+);*/
+background-color:#C01A1A;
+
+	/*
+	colorwizard.com op C5DE98
+	*/
+}
+
+#productButtonsArea, #noProductsNotice{
+	opacity: 0;
+}
+
+#noProductsNotice
+{
+	padding-top: 10pt;
+	padding-right: 10pt;
+}
+
+.productSelectButton{
+	background-color: #0047AB;
+	/*
+	background-color: #97C4DE;
+	background-image: linear-gradient(bottom, rgb(118,148,164) 0%, rgb(131,176,202) 50%);
+	background-image: -o-linear-gradient(bottom, rgb(118,148,164) 0%, rgb(131,176,202) 50%);
+	background-image: -moz-linear-gradient(bottom, rgb(118,148,164) 0%, rgb(131,176,202) 50%);
+	background-image: -webkit-linear-gradient(bottom, rgb(118,148,164) 0%, rgb(131,176,202) 50%);
+	background-image: -ms-linear-gradient(bottom, rgb(118,148,164) 0%, rgb(131,176,202) 50%);
+	
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(118,148,164)),
+		color-stop(0.5, rgb(131,176,202))
+	);*/
+}
+
+
+.userSelectButton, .productSelectButton{
+	/*border-radius: 5px;*/
+	border:none;
+	color: white;
+	float:left;
+	margin-left: 10pt;
+	margin-top: 10pt;
+	
+	width: 107pt;
+	height: 65pt;
+}
+
+.selected{
+	font-weight: bold;
+	color:yellow;
+}
+
+#order{
+	clear:both;
+	padding-top:35pt;
+	padding-left:10pt;
+}
+
+.orderLine{
+	line-height: 30pt;
+	font-size:25pt;
+}
+
+.orderNumber{
+	display:inline-block;
+	/* We use a fixed width instead of a margin-right so when the number of products > 10, 
+	it won't push the name of the product to the right */
+	width:30pt;
+}
+
+.orderPrice{
+	float:right;
+	/* We use a fixed width for all the prices so they are all nicely aligned to the left */
+	width: 90pt;
+}
+
+.reduceOrder{
+	margin-top:2pt;height: 26pt;width: 26pt;float:right;margin-right:10pt;
+	text-align:center;line-height:26pt
+}
+
+.reduceOrder,.clearOrder{
+	/*border-radius: 5px;background-color: #802835;border: 1px solid black;*/
+	background-color:#C01A1A;
+	border:none;
+}
+
+.blockedUser{
+	color: gray;
+}
+
+#userBlockedNotice{
+	display: none;
+	color: orange;
+}
+
+.orderArea{
+	position:absolute;
+	bottom:-65px;
+	padding:10pt;
+	font-size:24pt;
+}
+
+.orderArea, .productSelectButton, .manualTransition, #clearOrderDiv, #orderActionsArea, #loading{
+	-moz-transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+#userButtonsArea, #noUsersNotice, #productButtonsArea, #noProductsNotice{
+	-moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.orderAreaVisible{
+	bottom: 0px !important;
+}
+
+#order{
+	opacity: 1;
+}
+
+.orderComplete{
+	opacity: 0 !important;
+}
